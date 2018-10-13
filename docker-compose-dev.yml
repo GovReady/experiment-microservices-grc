@@ -30,7 +30,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
-  roles: # new
+  roles:
     build:
       context: ./services/roles
       dockerfile: Dockerfile-dev
@@ -48,7 +48,7 @@ services:
     depends_on:
       - roles-db
 
-  roles-db: # new
+  roles-db:
     build:
       context: ./services/roles/project/db
       dockerfile: Dockerfile
@@ -58,12 +58,41 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
-  # nginx:
-  #   build:
-  #     context: ./services/nginx
-  #     dockerfile: Dockerfile-dev
-  #   restart: always
-  #   ports:
-  #     - 80:80
-  #   depends_on:
-  #     - users
+  components: # new
+    build:
+      context: ./services/components
+      dockerfile: Dockerfile-dev
+    volumes:
+      - './services/components:/usr/src/app'
+    expose:
+      - 5000
+    ports:
+      - 5003:5000
+    environment:
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - DATABASE_URL=postgres://postgres:postgres@components-db:5432/components_dev
+      - DATABASE_TEST_URL=postgres://postgres:postgres@components-db:5432/components_test
+    depends_on:
+      - components-db
+
+  components-db: # new
+    build:
+      context: ./services/components/project/db
+      dockerfile: Dockerfile
+    ports:
+      - 5437:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+
+  nginx:
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile-dev
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - users

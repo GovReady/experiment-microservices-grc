@@ -24,18 +24,18 @@
       </div>
       <div class="column is-one-third">
         <br>
-        <h1 class="title">All Users</h1>
+        <h1 class="title">All Components</h1>
         <hr><br>
         <form action="/" method="POST">
           <div class="field">
             <input
-              name="username" class="input"
-              type="text" placeholder="Enter a username" required>
+              name="name" class="input"
+              type="text" placeholder="Enter a component name" required>
           </div>
           <div class="field">
             <input
-              name="email" class="input"
-              type="email" placeholder="Enter an email address" required>
+              name="description" class="input"
+              type="description" placeholder="Enter a brief description" required>
           </div>
           <input
             type="submit" class="button is-primary is-fullwidth"
@@ -43,14 +43,14 @@
         </form>
         <br>
         <hr>
-          {% if users %}
+          {% if components %}
             <ol>
-              {% for user in users %}
-                <li>{{user.username}}</li>
+              {% for component in components %}
+                <li><a href="/components/{{component.id}}">{{component.name}}</a></li>
               {% endfor %}
             </ol>
           {% else %}
-            <p>No users!</p>
+            <p>No components!</p>
           {% endif %}
         </div>
       </div>

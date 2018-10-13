@@ -16,6 +16,8 @@ docker-compose -f docker-compose-dev.yml run users python manage.py recreate-db
 docker-compose -f docker-compose-dev.yml run users python manage.py seed-db
 docker-compose -f docker-compose-dev.yml run roles python manage.py recreate-db
 docker-compose -f docker-compose-dev.yml run roles python manage.py seed-db
+docker-compose -f docker-compose-dev.yml run components python manage.py recreate-db
+docker-compose -f docker-compose-dev.yml run components python manage.py seed-db
 
 # Launch docker containers
 docker-compose -f docker-compose-dev.yml up
@@ -26,7 +28,7 @@ docker-compose -f docker-compose-dev.yml up
 # Stopping and removing containers
 ```
 docker-compose -f docker-compose-dev.yaml stop
-docker-compose -f docker-compose-dev.yaml dwon
+docker-compose -f docker-compose-dev.yaml down
 
 # remove
 docker rmi -f $(docker images -q)
