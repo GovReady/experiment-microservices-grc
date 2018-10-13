@@ -42,4 +42,7 @@ docker-compose -f docker-compose-dev.yml exec users-db psql -U postgres
 
 # connect to roles-db
 docker-compose -f docker-compose-dev.yaml exec roles-db psql -U postgres
+
+# connect to components-db
+docker-compose -f docker-compose-dev.yaml exec components-db psql -U postgres
 ```
