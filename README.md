@@ -1,5 +1,10 @@
 # README
 
+An experiment in a microservices approach to GRC software.
+
+This repository leverages the sample code in "Microservices-docker-flask-react v2.3.2" from
+[https://testdriven.io](https://testdriven.io).
+
 # Launching
 
 ```
