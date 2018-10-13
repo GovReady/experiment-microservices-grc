@@ -1,0 +1,3 @@
+CREATE DATABASE roles_prod;
+CREATE DATABASE roles_dev;
+CREATE DATABASE roles_test;
