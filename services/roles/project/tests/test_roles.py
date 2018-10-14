@@ -120,7 +120,7 @@ class TestRoleService(BaseTestCase):
     def test_single_role_incorrect_id(self):
         """Ensure error is thrown if the id does not exist."""
         with self.client:
-            response = self.client.get('/role/999')
+            response = self.client.get('/roles/999')
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 404)
             self.assertIn('Role does not exist', data['message'])

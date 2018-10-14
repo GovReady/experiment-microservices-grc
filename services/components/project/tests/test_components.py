@@ -119,7 +119,7 @@ class TestComponentService(BaseTestCase):
     def test_single_component_incorrect_id(self):
         """Ensure error is thrown if the id does not exist."""
         with self.client:
-            response = self.client.get('/component/999')
+            response = self.client.get('/components/999')
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 404)
             self.assertIn('Component does not exist', data['message'])
@@ -139,7 +139,7 @@ class TestComponentService(BaseTestCase):
                 'Amazon Web Services', data['data']['components'][0]['description'])
             self.assertIn('Azure', data['data']['components'][1]['name'])
             self.assertIn(
-                'Authorizing Official', data['data']['components'][1]['description'])
+                'Microsoft Azure', data['data']['components'][1]['description'])
             self.assertIn('success', data['status'])
 
     def test_main_no_components(self):

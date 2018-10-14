@@ -47,7 +47,7 @@ def add_component():
             db.session.add(Component(name=name, description=description))
             db.session.commit()
             response_object['status'] = 'success'
-            response_object['message'] = f'{component} was added!'
+            response_object['message'] = f'{name} was added!'
             return jsonify(response_object), 201
         else:
             response_object['message'] = 'Sorry. That component already exists.'

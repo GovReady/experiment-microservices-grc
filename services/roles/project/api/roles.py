@@ -47,7 +47,7 @@ def add_role():
             db.session.add(Role(name=name, description=description))
             db.session.commit()
             response_object['status'] = 'success'
-            response_object['message'] = f'{role} was added!'
+            response_object['message'] = f'{name} was added!'
             return jsonify(response_object), 201
         else:
             response_object['message'] = 'Sorry. That role already exists.'
