@@ -17,4 +17,4 @@ before_script:
   - docker-compose -f docker-compose-dev.yml run users flake8 project
 
 after_script:
-  - docker-compose -f docker-compose-dev.hml down
+  - docker-compose -f docker-compose-dev.yml down

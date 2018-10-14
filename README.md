@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/govready/experiment-microservices-grc.svg?branch=master)](https://travis-ci.org/govready/experiment-microservices-grc)
+
 An experiment in a microservices approach to GRC software.
 
 This repository leverages the sample code in "Microservices-docker-flask-react v2.3.2" from
