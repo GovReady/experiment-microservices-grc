@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/govready/experiment-microservices-grc.svg?branch=master)](https://travis-ci.org/govready/experiment-microservices-grc)
+[![Build Status](https://travis-ci.org/GovReady/experiment-microservices-grc.svg?branch=master)](https://travis-ci.org/GovReady/experiment-microservices-grc)
 
 An experiment in a microservices approach to GRC software.
 
