@@ -104,7 +104,8 @@ class TestRoleService(BaseTestCase):
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 200)
             self.assertIn('ISSO', data['data']['name'])
-            self.assertIn('Information System Security Officer', data['data']['description'])
+            self.assertIn('Information System Security Officer',
+                data['data']['description'])
             self.assertIn('success', data['status'])
 
     def test_single_role_no_id(self):
@@ -125,7 +126,6 @@ class TestRoleService(BaseTestCase):
             self.assertIn('Role does not exist', data['message'])
             self.assertIn('fail', data['status'])
 
-
     def test_all_roles(self):
         """Ensure get all roles behaves correctly."""
         add_role('ISSO', 'Information System Security Officer')
@@ -137,7 +137,8 @@ class TestRoleService(BaseTestCase):
             self.assertEqual(len(data['data']['roles']), 2)
             self.assertIn('ISSO', data['data']['roles'][0]['name'])
             self.assertIn(
-                'Information System Security Officer', data['data']['roles'][0]['description'])
+                'Information System Security Officer',
+                data['data']['roles'][0]['description'])
             self.assertIn('AO', data['data']['roles'][1]['name'])
             self.assertIn(
                 'Authorizing Official', data['data']['roles'][1]['description'])

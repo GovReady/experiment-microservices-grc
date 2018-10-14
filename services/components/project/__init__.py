@@ -7,7 +7,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 
-# # instantiate the db
+# instantiate the db
 db = SQLAlchemy()
 
 

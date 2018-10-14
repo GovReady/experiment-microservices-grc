@@ -2,12 +2,11 @@
 
 
 from sqlalchemy.sql import func
-
 from project import db
 
 
 class Component(db.Model):
-    
+
     __tablename__ = "components"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

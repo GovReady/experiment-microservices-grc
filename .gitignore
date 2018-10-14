@@ -1,2 +1,5 @@
 __pycache__
 env
+services/roles/htmlcov
+services/users/htmlcov
+services/components/htmlcov

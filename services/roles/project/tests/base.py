@@ -2,7 +2,6 @@
 
 
 from flask_testing import TestCase
-
 from project import create_app, db
 
 app = create_app()

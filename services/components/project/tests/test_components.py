@@ -125,7 +125,6 @@ class TestComponentService(BaseTestCase):
             self.assertIn('Component does not exist', data['message'])
             self.assertIn('fail', data['status'])
 
-
     def test_all_components(self):
         """Ensure get all components behaves correctly."""
         add_component('aws', 'Amazon Web Services')
