@@ -1,0 +1,20 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.21.1
+
+before_install:
+  - sudo rm /user/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/relesease/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+
+before_script:
+  - docker-compose -f docker-compose-dev.yml run users python manage.py test
+  - docker-compose -f docker-compose-dev.yml run users flake8 project
+
+after_script:
+  - docker-compose -f docker-compose-dev.hml down
