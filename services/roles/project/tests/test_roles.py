@@ -104,8 +104,8 @@ class TestRoleService(BaseTestCase):
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 200)
             self.assertIn('ISSO', data['data']['name'])
-            self.assertIn('Information System Security Officer',
-                data['data']['description'])
+            desc_val = 'Information System Security Officer'
+            self.assertIn(desc_val, data['data']['description'])
             self.assertIn('success', data['status'])
 
     def test_single_role_no_id(self):
@@ -140,8 +140,8 @@ class TestRoleService(BaseTestCase):
                 'Information System Security Officer',
                 data['data']['roles'][0]['description'])
             self.assertIn('AO', data['data']['roles'][1]['name'])
-            self.assertIn(
-                'Authorizing Official', data['data']['roles'][1]['description'])
+            desc_val = 'Authorizing Official'
+            self.assertIn(desc_val, data['data']['roles'][1]['description'])
             self.assertIn('success', data['status'])
 
     def test_main_no_roles(self):
@@ -168,9 +168,10 @@ class TestRoleService(BaseTestCase):
     def test_main_add_role(self):
         """Ensure a new role can be added to the database."""
         with self.client:
+            desc_val = 'Information System Security Officer'
             response = self.client.post(
                 '/',
-                data=dict(name='ISSO', description='Information System Security Officer'),
+                data=dict(name='ISSO', description=desc_val),
                 follow_redirects=True
             )
             self.assertEqual(response.status_code, 200)

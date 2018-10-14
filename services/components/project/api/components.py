@@ -8,7 +8,9 @@ from project.api.models import Component
 from project import db
 
 
-components_blueprint = Blueprint('components', __name__, template_folder='./templates')
+components_blueprint = Blueprint('components',
+                                 __name__,
+                                 template_folder='./templates')
 
 
 @components_blueprint.route('/', methods=['GET', 'POST'])
@@ -50,7 +52,7 @@ def add_component():
             response_object['message'] = f'{name} was added!'
             return jsonify(response_object), 201
         else:
-            response_object['message'] = 'Sorry. That component already exists.'
+            response_object['message'] = 'Sorry. Component already exists.'
             return jsonify(response_object), 400
     except exc.IntegrityError as e:
         db.session.rollback()

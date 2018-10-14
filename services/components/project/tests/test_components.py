@@ -135,11 +135,13 @@ class TestComponentService(BaseTestCase):
             self.assertEqual(response.status_code, 200)
             self.assertEqual(len(data['data']['components']), 2)
             self.assertIn('aws', data['data']['components'][0]['name'])
-            self.assertIn(
-                'Amazon Web Services', data['data']['components'][0]['description'])
+            desc_val = 'Amazon Web Services'
+            data_val = data['data']['components'][0]['description']
+            self.assertIn(desc_val, data_val)
             self.assertIn('Azure', data['data']['components'][1]['name'])
-            self.assertIn(
-                'Microsoft Azure', data['data']['components'][1]['description'])
+            desc_val = 'Microsoft Azure'
+            data_val = data['data']['components'][1]['description']
+            self.assertIn(desc_val, data_val)
             self.assertIn('success', data['status'])
 
     def test_main_no_components(self):

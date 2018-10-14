@@ -21,7 +21,7 @@ script:
   - docker-compose -f docker-compose-dev.yml run roles python manage.py test
   - docker-compose -f docker-compose-dev.yml run roles flake8 project
   - docker-compose -f docker-compose-dev.yml run components python manage.py test
-  - docker-compose -f docker-compose-dev.yml run components flake8 project
+  - docker-compose -f docker-compose-dev.yml run components flake8 --ignore E501 project
 
 after_script:
   - docker-compose -f docker-compose-dev.yml down
